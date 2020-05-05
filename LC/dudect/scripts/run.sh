@@ -16,7 +16,7 @@ for program in $PROGRAMS; do
     timeout $1 $program > "${OUT_DIR}/${CANDIDATE}/${FILE}.out"
     OUTPUT=$(tail -n 2 ${OUT_DIR}/${CANDIDATE}/${FILE}.out)
     
-    [[ "$OUTPUT" =~ "Definitely not" ]] && printf "\tDefinitely not constant time.\n"
-    [[ "$OUTPUT" =~ "Probably not" ]] && printf "\tProbably not constant time.\n"
-    [[ "$OUTPUT" =~ "maybe" ]] && printf "\tMaybe constant time.\n"
+    [[ "$OUTPUT" =~ "Definitely not" ]] && printf "\tDefinitely not constant time.\n" && continue
+    [[ "$OUTPUT" =~ "Probably not" ]] && printf "\tProbably not constant time.\n" && continue
+    [[ "$OUTPUT" =~ "maybe" ]] && printf "\tMaybe constant time.\n" && continue
 done
