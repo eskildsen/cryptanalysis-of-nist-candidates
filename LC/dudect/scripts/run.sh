@@ -1,5 +1,7 @@
 #!/bin/bash
 REF=""
+TIMEOUT=$1
+BATCH_SIZE=$3
 [[ $2 = 1 ]] && REF="_ref"
 PROGRAMS=$(find -path "./compiled/*/*${REF}")
 
@@ -9,17 +11,29 @@ OUT_DIR="out"
 echo "Found $(echo "$PROGRAMS" | wc -l) dudect files to run"
 printf "Using $1 seconds timeout for each dudect file\n\n"
 
-
-for program in $PROGRAMS; do
+dudect () {
+    local program=$1
     CANDIDATE=$(echo $program | cut -d'/' -f3)
     FILE=$(echo $program | cut -d'/' -f4)
     [ ! -d "${OUT_DIR}/${CANDIDATE}" ] && mkdir -p "${OUT_DIR}/${CANDIDATE}"
 
-    echo "Running ${CANDIDATE}/${FILE}"
-    timeout $1 $program > "${OUT_DIR}/${CANDIDATE}/${FILE}.out"
+    #echo "Running ${CANDIDATE}/${FILE}"
+    timeout $TIMEOUT $program > "${OUT_DIR}/${CANDIDATE}/${FILE}.out"
     OUTPUT=$(tail -n 2 ${OUT_DIR}/${CANDIDATE}/${FILE}.out)
     
-    [[ "$OUTPUT" =~ "Definitely not" ]] && printf "\tDefinitely not constant time.\n" && continue
-    [[ "$OUTPUT" =~ "Probably not" ]] && printf "\tProbably not constant time.\n" && continue
-    [[ "$OUTPUT" =~ "maybe" ]] && printf "\tMaybe constant time.\n" && continue
+    [[ "$OUTPUT" =~ "Definitely not" ]] && printf "${CANDIDATE}/${FILE} is definitely not constant time.\n" && return
+    [[ "$OUTPUT" =~ "Probably not" ]] && printf "${CANDIDATE}/${FILE} is probably not constant time.\n" && return
+    [[ "$OUTPUT" =~ "maybe" ]] && printf "${CANDIDATE}/${FILE} is maybe constant time.\n" && return
+    printf "${CANDIDATE}/${FILE} gave no output.\n"
+}
+
+N=BATCH_SIZE
+(
+    for program in $PROGRAMS; do
+        ((i=i%N)); ((i++==0)) && wait
+        dudect "$program" &
+    done
+)
+for program in $PROGRAMS; do
+    
 done

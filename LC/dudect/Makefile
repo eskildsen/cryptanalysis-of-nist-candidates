@@ -26,6 +26,7 @@ LDFLAGS = $(OPTIMIZATION) -std=c11
 INCS	= -Iinc/
 SECONDS?=120
 REFONLY=1
+BATCH_SIZE=4
 
 dut_aes32: $(OBJS) $(OBJS_AES32) dut/aes32/dut_aes32.c
 	$(CC) $(LDFLAGS) $(INCS) -o dudect_aes32_$(OPTIMIZATION) dut/aes32/$@.c $(OBJS) $(OBJS_AES32) $(LIBS)
@@ -49,7 +50,7 @@ compile: $(OBJS)
 	./scripts/compile.sh
 
 run: $(OBJS)
-	./scripts/run.sh $(SECONDS) $(REFONLY)
+	./scripts/run.sh $(SECONDS) $(REFONLY) $(BATCH_SIZE)
 
 get_candidates:
 	./scripts/get_candidates.sh
