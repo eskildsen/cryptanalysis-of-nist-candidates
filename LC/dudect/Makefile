@@ -1,4 +1,4 @@
-all: dut_aes32 dut_aesbitsliced dut_cmpmemcmp dut_cmpct dut_donna dut_donnabad dut_tinyjambu dut_drygascon dut_drygascon256
+all: dut_aes32 dut_aesbitsliced dut_cmpmemcmp dut_cmpct dut_donna dut_donnabad
 
 OBJS = src/cpucycles.o src/fixture.o src/random.o \
 src/ttest.o src/percentile.o
@@ -23,8 +23,8 @@ LIBS	= -lm
 #LDFLAGS	= -fsanitize=memory -fno-omit-frame-pointer -g 
 #LDFLAGS = -Weverything $(OPTIMIZATION) -std=c11
 LDFLAGS = $(OPTIMIZATION) -std=c11
-
 INCS	= -Iinc/
+SECONDS?=120
 
 dut_aes32: $(OBJS) $(OBJS_AES32) dut/aes32/dut_aes32.c
 	$(CC) $(LDFLAGS) $(INCS) -o dudect_aes32_$(OPTIMIZATION) dut/aes32/$@.c $(OBJS) $(OBJS_AES32) $(LIBS)
@@ -44,17 +44,16 @@ dut_donna: $(OBJS) $(OBJS_DONNA) dut/donna/dut_donna.c
 dut_donnabad: $(OBJS) $(OBJS_DONNABAD) dut/donnabad/dut_donnabad.c
 	$(CC) $(LDFLAGS) $(INCS) -o dudect_donnabad_$(OPTIMIZATION) dut/donnabad/$@.c $(OBJS) $(OBJS_DONNABAD) $(LIBS)
 
-dut_tinyjambu: $(OBJS) $(OBJS_TINYJAMBU) dut/TinyJAMBU/dut_tinyjambu.c
-	$(CC) $(LDFLAGS) $(INCS) -o dudect_tinyjambu_$(OPTIMIZATION) dut/TinyJAMBU/$@.c $(OBJS) $(OBJS_TINYJAMBU) $(LIBS)
+compile: $(OBJS)
+	./scripts/compile.sh
 
-dut_drygascon: $(OBJS) $(OBJS_DRYGASCON) dut/drygascon/dut_drygascon.c
-	$(CC) $(LDFLAGS) $(INCS) -o dudect_drygascon_$(OPTIMIZATION) dut/drygascon/$@.c $(OBJS) $(OBJS_DRYGASCON) $(LIBS)
-
-dut_drygascon256: $(OBJS) $(OBJS_DRYGASCON256) dut/drygascon256/dut_drygascon256.c
-	$(CC) $(LDFLAGS) $(INCS) -o dudect_drygascon256_$(OPTIMIZATION) dut/drygascon256/$@.c $(OBJS) $(OBJS_DRYGASCON256) $(LIBS)
+run: $(OBJS)
+	./scripts/run.sh $(SECONDS)
 
 .c.o:
 	$(CC) $(CFLAGS) $(INCS) -c $< -o $@
 
 clean:
 	rm -f $(OBJS) $(OBJS_AES32) $(OBJS_AESBITSLICED) $(OBJS_DONNA) $(OBJS_DONNABAD) dudect_* *.exe a.out
+	rm -f -r compiled
+	rm -f -r out
