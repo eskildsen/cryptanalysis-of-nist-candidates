@@ -50,6 +50,9 @@ compile: $(OBJS)
 run: $(OBJS)
 	./scripts/run.sh $(SECONDS)
 
+get_candidates:
+	./scripts/get_candidates.sh
+
 .c.o:
 	$(CC) $(CFLAGS) $(INCS) -c $< -o $@
 
