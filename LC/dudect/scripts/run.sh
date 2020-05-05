@@ -18,7 +18,7 @@ dudect () {
     [ ! -d "${OUT_DIR}/${CANDIDATE}" ] && mkdir -p "${OUT_DIR}/${CANDIDATE}"
 
     #echo "Running ${CANDIDATE}/${FILE}"
-    timeout $TIMEOUT $program > "${OUT_DIR}/${CANDIDATE}/${FILE}.out"
+    timeout $TIMEOUT stdbuf -oL $program > "${OUT_DIR}/${CANDIDATE}/${FILE}.out"
     OUTPUT=$(tail -n 2 ${OUT_DIR}/${CANDIDATE}/${FILE}.out)
     
     [[ "$OUTPUT" =~ "Definitely not" ]] && printf "${CANDIDATE}/${FILE} is definitely not constant time.\n" && return
