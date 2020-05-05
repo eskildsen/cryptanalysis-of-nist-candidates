@@ -12,8 +12,8 @@ const size_t number_measurements = 1e6; // per test
 
 const size_t nonce_size = 16; //128 bit
 const size_t msg_size = 64;
-const size_t ad_size = 16; //32 bit
-const size_t c_len = 64 + 8; // msg_size + 8
+const size_t ad_size = 4; //32 bit
+const size_t c_len = 64 + 32; // msg_size + 8
 uint8_t *nonce;
 uint8_t *msg;
 uint8_t *ad;
