@@ -1,5 +1,8 @@
 #!/bin/bash
-PROGRAMS=$(find -path './compiled/*/*')
+REF=""
+[[ $2 = 1 ]] && REF="_ref"
+PROGRAMS=$(find -path "./compiled/*/*${REF}")
+
 OUT_DIR="out"
 [ ! -d "$OUT_DIR" ] && mkdir -p "$OUT_DIR"
 
