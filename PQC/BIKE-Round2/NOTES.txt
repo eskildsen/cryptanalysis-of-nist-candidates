@@ -1,0 +1,6 @@
+Notes:
+full implementation downloadable from nist submissions page.
+
+requires ntl and gf2x, install guide https://www.shoup.net/ntl/doc/tour-gf2x.html
+i needed to add flag -lgf2x to makefile after -lntl for it to work.
+
