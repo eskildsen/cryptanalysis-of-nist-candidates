@@ -34,6 +34,3 @@ N=BATCH_SIZE
         dudect "$program" &
     done
 )
-for program in $PROGRAMS; do
-    
-done
