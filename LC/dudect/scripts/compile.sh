@@ -1,6 +1,6 @@
 #!/bin/bash
-CFLAGS="-O2 -std=c11 -Wfatal-errors"
-LDFLAGS="-O2 -std=c11"
+CFLAGS="-std=c99 -Wall -Wextra -Wshadow -fsanitize=address,undefined -O2 -Wfatal-errors"
+LDFLAGS="-std=c99 -Wall -Wextra -Wshadow -fsanitize=address,undefined -O2"
 INCS="-Iinc/"
 LIBS="-lm"
 OBJS="src/cpucycles.o src/fixture.o src/random.o src/ttest.o src/percentile.o"
@@ -24,11 +24,11 @@ for d in $SUBMISSIONS; do
         [[ "$name" = "genkat_aead.c" ]] && continue
         echo "Compiling $file"
         ENCRYPT_COMPILED="${file%.c}.o"
-        cc $CFLAGS $INCS -c $file -o $ENCRYPT_COMPILED
+        gcc-5 $CFLAGS $INCS -c $file -o $ENCRYPT_COMPILED
         COMPILED="$COMPILED $ENCRYPT_COMPILED"
     done
 
 
     echo "Compiling $DUDECT_COMPILED"
-    cc $LDFLAGS $INCS $INCS2 -o $DUDECT_COMPILED src/dut.c $OBJS $COMPILED $LIBS
+    gcc-5 $LDFLAGS $INCS $INCS2 -o $DUDECT_COMPILED src/dut.c $OBJS $COMPILED $LIBS
 done
