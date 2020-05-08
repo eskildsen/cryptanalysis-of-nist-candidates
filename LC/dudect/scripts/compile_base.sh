@@ -1,7 +1,7 @@
 #!/bin/bash
 CFLAGS="-std=c99 -Wall -Wextra -Wshadow -O2 -Wfatal-errors"
 [[ "$1" == "ctgrind" ]] && CFLAGS="${CFLAGS} -ggdb"
-[[ "$1" == "dudect" ]] && CFLAGS="${CFLAGS} -fsanitize=address,undefined"
+[[ "$1" == "dudect" ]] && CFLAGS="${CFLAGS} " #-fsanitize=address,undefined" dissabled this because it is incompatible with stdbuf and because as it does roughly the same as valgrind and therefore should not impact correctness
 INCS="-Iinc/"
 C_FILES=$(find -path './candidates/*/Implementations/crypto_aead/*/*/*.c')
 [ ! -d "compiled" ] && mkdir -p "compiled"
