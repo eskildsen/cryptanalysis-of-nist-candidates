@@ -13,8 +13,7 @@ dut/aesbitsliced/int128_aes128ctr.o \
 dut/aesbitsliced/stream_aes128ctr.o \
 dut/aesbitsliced/xor_afternm_aes128ctr.o
 OBJS_TINYJAMBU = dut/TinyJAMBU/encrypt.o
-OBJS_DRYGASCON = dut/drygascon/encrypt.o
-OBJS_DRYGASCON256 = dut/drygascon256/encrypt.o
+OBJS_DRYGASCON = dut/drygascon256test/encrypt.o
 # CC=clang
 OPTIMIZATION=-O2
 #CFLAGS	= -Weverything -O0 -fsanitize=memory -fno-omit-frame-pointer -g -std=c11
@@ -45,6 +44,9 @@ dut_donna: $(OBJS) $(OBJS_DONNA) dut/donna/dut_donna.c
 
 dut_donnabad: $(OBJS) $(OBJS_DONNABAD) dut/donnabad/dut_donnabad.c
 	$(CC) $(LDFLAGS) $(INCS) -o dudect_donnabad_$(OPTIMIZATION) dut/donnabad/$@.c $(OBJS) $(OBJS_DONNABAD) $(LIBS)
+
+dut_drygascon256: $(OBJS) $(OBJS_DRYGASCON) dut/drygascon256test/dut_drygascon256.c
+	$(CC) $(LDFLAGS) $(INCS) -Idut/drygascon256test/ -o dudect_test_$(OPTIMIZATION) dut/drygascon256test/$@.c $(OBJS) $(OBJS_DRYGASCON) $(LIBS)
 
 libctgrind.so:
 	gcc -o libctgrind.so -shared src/ctgrind.c -Wall -std=c99 -fPIC -Wl,-soname,libctgrind.so.1
