@@ -1,5 +1,5 @@
 #!/bin/bash
-LDFLAGS="-std=c99 -Wall -Wextra -Wshadow -fsanitize=address,undefined -O2 -ggdb -no-pie"
+LDFLAGS="-std=c99 -Wall -Wextra -Wshadow -O2 -ggdb"
 INCS="-Iinc/"
 LIBS="-lm"
 OBJS="src/random.o"

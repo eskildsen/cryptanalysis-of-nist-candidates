@@ -1,6 +1,7 @@
 #!/bin/bash
-CFLAGS="-std=c99 -Wall -Wextra -Wshadow -fsanitize=address,undefined -O2 -Wfatal-errors"
-[[ "$1" == "ctgrind" ]] && CFLAGS="${CFLAGS} -ggdb -no-pie"
+CFLAGS="-std=c99 -Wall -Wextra -Wshadow -O2 -Wfatal-errors"
+[[ "$1" == "ctgrind" ]] && CFLAGS="${CFLAGS} -ggdb"
+[[ "$1" == "dudect" ]] && CFLAGS="${CFLAGS} -fsanitize=address,undefined"
 INCS="-Iinc/"
 C_FILES=$(find -path './candidates/*/Implementations/crypto_aead/*/*/*.c')
 [ ! -d "compiled" ] && mkdir -p "compiled"
