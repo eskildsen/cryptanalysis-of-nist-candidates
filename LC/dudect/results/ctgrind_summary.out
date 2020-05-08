@@ -1,0 +1,81 @@
+Definitely not ct:
+comet/ctgrind_comet64chamv1_ref ==25481== ERROR SUMMARY: 6 errors from 4 contexts (suppressed: 0 from 0)
+    Conditional jump
+        permute (comet_64-128_and_128-128.c:85)
+comet/ctgrind_comet64speckv1_ref ==25490== ERROR SUMMARY: 6 errors from 4 contexts (suppressed: 0 from 0)
+    Conditional jump
+        permute (comet_64-128_and_128-128.c:85)
+comet/ctgrind_comet128chamv1_ref ==25472== ERROR SUMMARY: 4 errors from 4 contexts (suppressed: 0 from 0)
+    Conditional jump
+        permute (comet_64-128_and_128-128.c:85)
+    Use of secret
+        emulated_aesenc_substitute_bytes (AES_10_128-128.c:194)
+        AES_128_Key_Expansion (AES_10_128-128.c:255,257,258,259)
+        blockcipher_encrypt (AES_10_128-128.c:296,302,303,305,306,307,312,313,314,315)
+comet/ctgrind_comet128aesv1_ref ==25463== ERROR SUMMARY: 1004 errors from 109 contexts (suppressed: 0 from 0)
+    Conditional jump
+        blockcipher_encrypt (AES_10_128-128.c:194,305,312,313,314)
+        emulated_aesenc_substitute_bytes (AES_10_128-128.c:315)
+drygascon/ctgrind_drygascon256_ref ==25508== ERROR SUMMARY: 12 errors from 2 contexts (suppressed: 0 from 0)
+    Conditional jump
+        DRYSPONGE_set_key (drysponge_ref.h:102,121)
+saeaes/ctgrind_saeaes128a120t128v1_ref ==25870== ERROR SUMMARY: 1000 errors from 644 contexts (suppressed: 0 from 0)
+    Use of secret
+        AesKey (aes.c:186)
+        AesEnc (aes.c:246,248,250,252,254,256,258,260,262,266)
+saeaes/ctgrind_saeaes128a64t128v1_ref ==25888== ERROR SUMMARY: 1000 errors from 644 contexts (suppressed: 0 from 0)
+    Use of secret
+        AesKey (aes.c:186)
+        AesEnc (aes.c:246,248,250,252,254,256,258,260,262,266)
+saeaes/ctgrind_saeaes128a120t64v1_ref ==25879== ERROR SUMMARY: 1000 errors from 644 contexts (suppressed: 0 from 0)
+    Use of secret
+        AesKey (aes.c:186)
+        AesEnc (aes.c:246,248,250,252,254,256,258,260,262,266)
+saeaes/ctgrind_saeaes192a120t128v1_ref ==25906== ERROR SUMMARY: 1184 errors from 776 contexts (suppressed: 0 from 0)
+    Use of secret
+        AesKey (aes.c:197,205)
+        AesEnc (aes.c:246,248,250,252,254,256,258,260,262,269,271,273)
+saeaes/ctgrind_saeaes128a64t64v1_ref ==25897== ERROR SUMMARY: 1000 errors from 644 contexts (suppressed: 0 from 0)
+    Use of secret
+        AesKey (aes.c:186)
+        AesEnc (aes.c:246,248,250,252,254,256,258,260,262,266)
+saeaes/ctgrind_saeaes192a64t64v1_ref ==25924== ERROR SUMMARY: 1184 errors from 776 contexts (suppressed: 0 from 0)
+    Use of secret
+        AesKey (aes.c:197,205)
+        AesEnc (aes.c:246,248,250,252,254,256,258,260,262,269,271,273)
+saeaes/ctgrind_saeaes256a64t128v1_ref ==25942== ERROR SUMMARY: 1396 errors from 908 contexts (suppressed: 0 from 0)
+        Use of secret
+        AesKey (aes.c:217,221,227)
+        AesEnc (aes.c:246,248,250,252,254,256,258,260,262,276,278,280,282,284)
+saeaes/ctgrind_saeaes256a64t64v1_ref ==25951== ERROR SUMMARY: 1396 errors from 908 contexts (suppressed: 0 from 0)
+    Use of secret
+        AesKey (aes.c:217,221,227)
+        AesEnc (aes.c:246,248,250,252,254,256,258,260,262,276,278,280,282,284)
+
+Probably not ct: 
+elephant/ctgrind_elephant176v1_ref ==25526== ERROR SUMMARY: 16 errors from 1 contexts (suppressed: 0 from 0)
+    Use of secret
+        permutation (spongent.c:115)
+estate/ctgrind_sestatetweaes128v1_ref ==25562== ERROR SUMMARY: 872 errors from 16 contexts (suppressed: 0 from 0)
+    Use of secret
+        generate_round_keys (tweaes-128.c:156,158,159,161)
+        sub_bytes (tweaes-128.c:197)
+forkae/ctgrind_saefforkskinnyb128t256n120v1_ref ==25616== ERROR SUMMARY: 3152 errors from 5 contexts (suppressed: 0 from 0)
+    Use of secret
+        SubCell (skinny_round.c:66)
+mixfeed/ctgrind_mixfeed_ref ==25738== ERROR SUMMARY: 1428 errors from 63 contexts (suppressed: 0 from 0)
+    Use of secret
+        aes_subbytes (aes.h:45)
+        aes_key_schedule.part.0 (aes.h:124,125,126,127)
+orange/ctgrind_orangezestv1_ref ==25748== ERROR SUMMARY: 97 errors from 5 contexts (suppressed: 0 from 0)
+    Use of secret
+        alpha_mult (orangemodule.h:91)
+        SubCell (photon.h:133)
+saeaes/ctgrind_saeaes192a64t128v1_ref ==25915== ERROR SUMMARY: 1184 errors from 776 contexts (suppressed: 0 from 0)
+    Use of secret
+        AesKey (aes.c:197,205)
+        AesEnc (aes.c:246,248,250,252,254,256,258,260,262,269,271,273)
+saeaes/ctgrind_saeaes256a120t128v1_ref ==25933== ERROR SUMMARY: 1396 errors from 908 contexts (suppressed: 0 from 0)
+    Use of secret
+        AesKey (aes.c:217,221,227)
+        AesEnc (aes.c:246,248,250,252,254,256,258,260,262,276,278,280,282,284)

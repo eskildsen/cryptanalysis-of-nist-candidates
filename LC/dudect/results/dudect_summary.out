@@ -1,0 +1,49 @@
+Definitely not ct:
+comet/dudect_comet64chamv1_ref is definitely not constant time.
+comet/dudect_comet64speckv1_ref is definitely not constant time.
+comet/dudect_comet128chamv1_ref is definitely not constant time.
+comet/dudect_comet128aesv1_ref is definitely not constant time.
+drygascon/dudect_drygascon256_le32 is definitely not constant time.
+drygascon/dudect_drygascon256_ref is definitely not constant time.
+saeaes/dudect_saeaes128a120t128v1_ref is definitely not constant time.
+saeaes/dudect_saeaes128a64t128v1_ref is definitely not constant time.
+saeaes/dudect_saeaes128a120t64v1_ref is definitely not constant time.
+saeaes/dudect_saeaes192a120t128v1_ref is definitely not constant time.
+saeaes/dudect_saeaes128a64t64v1_ref is definitely not constant time.
+saeaes/dudect_saeaes192a64t64v1_ref is definitely not constant time.
+saeaes/dudect_saeaes256a64t128v1_ref is definitely not constant time.
+saeaes/dudect_saeaes256a64t64v1_ref is definitely not constant time.
+
+Probably not ct: 
+elephant/dudect_elephant176v1_ref is probably not constant time.
+estate/dudect_sestatetweaes128v1_ref is probably not constant time.
+forkae/dudect_saefforkskinnyb128t256n120v1_ref is probably not constant time.
+mixfeed/dudect_mixfeed_ref is probably not constant time.
+orange/dudect_orangezestv1_ref is probably not constant time.
+saeaes/dudect_saeaes192a64t128v1_ref is probably not constant time.
+saeaes/dudect_saeaes256a120t128v1_ref is probably not constant time.
+saturnin/dudect_saturninctrcascadev2_bs32 is probably not constant time.
+
+Definitely should run longer:
+photon-beetle/dudect_photonbeetleaead128rate128v1_ref is maybe constant time.
+photon-beetle/dudect_photonbeetleaead128rate32v1_ref is maybe constant time.
+
+Probably should run longer:
+elephant/dudect_elephant200v1_ref is maybe constant time.
+isap/dudect_isapk128av20_ref is maybe constant time.
+
+Maybe should run longer:
+hyena/dudect_hyenav1_ref is maybe constant time.
+lotus-locus/dudect_twegift64lotusaeadv1_ref is maybe constant time.
+lotus-locus/dudect_twegift64locusaeadv1_ref is maybe constant time.
+pyjamask/dudect_pyjamask128aeadv1_ref is maybe constant time.
+pyjamask/dudect_pyjamask96aeadv1_ref is maybe constant time.
+skinny/dudect_skinnyaeadtk3128128v1_ref is maybe constant time.
+skinny/dudect_skinnyaeadtk312864v1_ref is maybe constant time.
+skinny/dudect_skinnyaeadtk29664v1_ref is maybe constant time.  
+skinny/dudect_skinnyaeadtk296128v1_ref is maybe constant time. 
+skinny/dudect_skinnyaeadtk39664v1_ref is maybe constant time.
+skinny/dudect_skinnyaeadtk396128v1_ref is maybe constant time.
+tinyjambu/dudect_tinyjambu192_ref is maybe constant time.
+tinyjambu/dudect_tinyjambu128_opt is maybe constant time.   
+wage/dudect_wageae128v1_ref is maybe constant time.

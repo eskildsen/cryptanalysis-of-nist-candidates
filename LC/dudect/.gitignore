@@ -55,3 +55,6 @@ dkms.conf
 candidates/
 compiled/
 out/
+
+# Dont ignore results
+!results/*
