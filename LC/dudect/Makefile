@@ -54,7 +54,7 @@ libctgrind.so:
 libctgrind.so.1: libctgrind.so
 	ln -s libctgrind.so libctgrind.so.1
 
-compile_dudct: $(OBJS)
+compile_dudect: $(OBJS)
 	./scripts/compile_base.sh dudect
 	./scripts/compile_dudect.sh
 
