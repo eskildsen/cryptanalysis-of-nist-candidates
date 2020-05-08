@@ -3,7 +3,7 @@ REF=""
 TIMEOUT=$1
 BATCH_SIZE=$3
 [[ $2 = 1 ]] && REF="_ref"
-PROGRAMS=$(find -path "./compiled/*/*${REF}")
+PROGRAMS=$(find -path "./compiled/*/dudect_*${REF}")
 
 OUT_DIR="out"
 [ ! -d "$OUT_DIR" ] && mkdir -p "$OUT_DIR"
