@@ -63,10 +63,10 @@ compile_ctgrind: $(OBJS) libctgrind.so libctgrind.so.1
 	./scripts/compile_ctgrind.sh
 
 dudect:
-	./scripts/run_dudect.sh $(SECONDS) $(REFONLY) $(BATCH_SIZE)
+	./scripts/run.sh $(SECONDS) $(REFONLY) $(BATCH_SIZE) dudect
 
 ctgrind:
-	./scripts/run_ctgrind.sh $(REFONLY)
+	./scripts/run.sh $(SECONDS) $(REFONLY) $(BATCH_SIZE) ctgrind
 
 get_candidates:
 	./scripts/get_candidates.sh
