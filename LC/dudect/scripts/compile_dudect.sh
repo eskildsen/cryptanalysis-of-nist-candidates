@@ -1,5 +1,5 @@
 #!/bin/bash
-LDFLAGS="-std=c99 -Wall -Wextra -Wshadow -fsanitize=address,undefined -O2"
+LDFLAGS="-std=c99 -Wall -Wextra -Wshadow -O2"
 INCS="-Iinc/"
 LIBS="-lm"
 OBJS="src/cpucycles.o src/fixture.o src/random.o src/ttest.o src/percentile.o"
