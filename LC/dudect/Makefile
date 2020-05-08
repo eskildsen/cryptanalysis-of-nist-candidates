@@ -46,11 +46,25 @@ dut_donna: $(OBJS) $(OBJS_DONNA) dut/donna/dut_donna.c
 dut_donnabad: $(OBJS) $(OBJS_DONNABAD) dut/donnabad/dut_donnabad.c
 	$(CC) $(LDFLAGS) $(INCS) -o dudect_donnabad_$(OPTIMIZATION) dut/donnabad/$@.c $(OBJS) $(OBJS_DONNABAD) $(LIBS)
 
-compile: $(OBJS)
-	./scripts/compile.sh
+libctgrind.so:
+	gcc -o libctgrind.so -shared src/ctgrind.c -Wall -std=c99 -fPIC -Wl,-soname,libctgrind.so.1
 
-run: $(OBJS)
-	./scripts/run.sh $(SECONDS) $(REFONLY) $(BATCH_SIZE)
+libctgrind.so.1: libctgrind.so
+	ln -s libctgrind.so libctgrind.so.1
+
+compile_dudct: $(OBJS)
+	./scripts/compile_base.sh dudect
+	./scripts/compile_dudect.sh
+
+compile_ctgrind: $(OBJS) libctgrind.so libctgrind.so.1
+	./scripts/compile_base.sh ctgrind
+	./scripts/compile_ctgrind.sh
+
+dudect:
+	./scripts/run_dudect.sh $(SECONDS) $(REFONLY) $(BATCH_SIZE)
+
+ctgrind:
+	./scripts/run_ctgrind.sh $(REFONLY)
 
 get_candidates:
 	./scripts/get_candidates.sh

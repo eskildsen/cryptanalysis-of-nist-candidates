@@ -7,6 +7,8 @@ PROGRAMS=$(find -path "./compiled/*/*${REF}")
 
 OUT_DIR="out"
 [ ! -d "$OUT_DIR" ] && mkdir -p "$OUT_DIR"
+OUT_DIR="${OUT_DIR}/dudect"
+[ ! -d "$OUT_DIR" ] && mkdir -p "$OUT_DIR"
 
 echo "Found $(echo "$PROGRAMS" | wc -l) dudect files to run"
 printf "Using $1 seconds timeout for each dudect file\n\n"

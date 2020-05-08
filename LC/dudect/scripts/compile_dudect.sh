@@ -1,10 +1,9 @@
 #!/bin/bash
-CFLAGS="-std=c99 -Wall -Wextra -Wshadow -fsanitize=address,undefined -O2 -Wfatal-errors"
 LDFLAGS="-std=c99 -Wall -Wextra -Wshadow -fsanitize=address,undefined -O2"
 INCS="-Iinc/"
 LIBS="-lm"
 OBJS="src/cpucycles.o src/fixture.o src/random.o src/ttest.o src/percentile.o"
-SUBMISSIONS=$(find -path './candidates/*/Implementations/crypto_aead/*/*/encrypt.c')
+SUBMISSIONS=$(find -path './candidates/*/Implementations/crypto_aead/*/*/encrypt.o')
 [ ! -d "compiled" ] && mkdir -p "compiled"
 
 for d in $SUBMISSIONS; do
@@ -12,22 +11,17 @@ for d in $SUBMISSIONS; do
     SUBMISSION=$(echo $d | cut -d'/' -f6)
     IMPLEMENTATION=$(echo $d | cut -d'/' -f7)
     COMPILED=""
-    INCS2="-I${d%encrypt.c}"
+    INCS2="-I${d%encrypt.o}"
     DUDECT_COMPILED="compiled/${CANDIDATE}/dudect_${SUBMISSION}_${IMPLEMENTATION}"
 
     [ ! -d "compiled/$CANDIDATE" ] && mkdir -p "compiled/$CANDIDATE"
 
-    #cc $CFLAGS $INCS -c $d -o $ENCRYPT_COMPILED
-    C_FILES=$(find -path "./candidates/${CANDIDATE}/Implementations/crypto_aead/${SUBMISSION}/${IMPLEMENTATION}/*.c")
-    for file in $C_FILES; do
+    O_FILES=$(find -path "./candidates/${CANDIDATE}/Implementations/crypto_aead/${SUBMISSION}/${IMPLEMENTATION}/*.o")
+    for file in $O_FILES; do
         name=$(echo $file | cut -d'/' -f8)
-        [[ "$name" = "genkat_aead.c" ]] && continue
-        echo "Compiling $file"
-        ENCRYPT_COMPILED="${file%.c}.o"
-        gcc-5 $CFLAGS $INCS -c $file -o $ENCRYPT_COMPILED
-        COMPILED="$COMPILED $ENCRYPT_COMPILED"
+        [[ "$name" = "genkat_aead.o" ]] && continue
+        COMPILED="$COMPILED $file"
     done
-
 
     echo "Compiling $DUDECT_COMPILED"
     gcc-5 $LDFLAGS $INCS $INCS2 -o $DUDECT_COMPILED src/dut.c $OBJS $COMPILED $LIBS
