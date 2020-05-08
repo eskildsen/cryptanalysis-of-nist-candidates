@@ -27,7 +27,7 @@ dudect () {
     printf "${CANDIDATE}/${FILE} gave no output.\n"
 }
 
-N=BATCH_SIZE
+N=$BATCH_SIZE
 (
     for program in $PROGRAMS; do
         ((i=i%N)); ((i++==0)) && wait
