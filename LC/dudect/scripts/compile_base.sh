@@ -1,5 +1,7 @@
 #!/bin/bash
 CFLAGS="-std=c99 -Wall -Wextra -Wshadow -O2 -Wfatal-errors"
+COMPILER="gcc-5"
+[[ "$1" == "afl" ]] && COMPILER="/home/morten/Desktop/uni/antifuzz/AFL/afl-gcc"
 [[ "$1" == "ctgrind" ]] && CFLAGS="${CFLAGS} -ggdb"
 [[ "$1" == "dudect" ]] && CFLAGS="${CFLAGS} " #-fsanitize=address,undefined" dissabled this because it is incompatible with stdbuf and because as it does roughly the same as valgrind and therefore should not impact correctness
 INCS="-Iinc/"
@@ -14,5 +16,5 @@ for file in $C_FILES; do
 
     echo "Compiling $file"
     ENCRYPT_COMPILED="${file%.c}.o"
-    gcc-5 $CFLAGS $INCS -c $file -o $ENCRYPT_COMPILED
+    $COMPILER $CFLAGS $INCS -c $file -o $ENCRYPT_COMPILED
 done

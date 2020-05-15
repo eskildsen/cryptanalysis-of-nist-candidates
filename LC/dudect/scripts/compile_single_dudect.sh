@@ -24,5 +24,5 @@ for d in $SUBMISSIONS; do
     done
 
     echo "Compiling $DUDECT_COMPILED"
-    gcc-5 $LDFLAGS $INCS $INCS2 -o $DUDECT_COMPILED src/afl.c $OBJS $COMPILED $LIBS
+    gcc-5 $LDFLAGS $INCS $INCS2 -o $DUDECT_COMPILED src/single.c $OBJS $COMPILED $LIBS
 done
