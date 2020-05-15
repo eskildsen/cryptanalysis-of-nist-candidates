@@ -62,11 +62,18 @@ compile_ctgrind: $(OBJS) libctgrind.so libctgrind.so.1
 	./scripts/compile_base.sh ctgrind
 	./scripts/compile_ctgrind.sh
 
+compile_afl: $(OBJS)
+	./scripts/compile_base.sh afl
+	./scripts/compile_afl.sh
+
 dudect:
 	./scripts/run.sh $(SECONDS) $(REFONLY) $(BATCH_SIZE) dudect
 
 ctgrind:
 	./scripts/run.sh $(SECONDS) $(REFONLY) $(BATCH_SIZE) ctgrind
+
+afl:
+	./scripts/run.sh $(SECONDS) $(REFONLY) $(BATCH_SIZE) afl
 
 get_candidates:
 	./scripts/get_candidates.sh

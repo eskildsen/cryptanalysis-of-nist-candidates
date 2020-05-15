@@ -4,6 +4,7 @@ TIMEOUT=$1
 BATCH_SIZE=$3
 APPLICATION=$4
 [[ ${APPLICATION} = "ctgrind" ]] && BATCH_SIZE=1 
+[[ ${APPLICATION} = "afl" ]] && BATCH_SIZE=1 
 [[ $2 = 1 ]] && REF="_ref"
 PROGRAMS=$(find -path "./compiled/*/${APPLICATION}_*${REF}")
 
@@ -14,6 +15,7 @@ OUT_DIR="${OUT_DIR}/${APPLICATION}"
 
 echo "Found $(echo "$PROGRAMS" | wc -l) ${APPLICATION} files to run"
 [[ "${APPLICATION}" == "dudect" ]] && printf "Using ${TIMEOUT} seconds timeout for each dudect file"
+[[ "${APPLICATION}" == "afl" ]] && printf "Using ${TIMEOUT} seconds timeout for each AFL file"
 printf "\n\n"
 
 dudect () {
@@ -44,6 +46,17 @@ ctgrind () {
 
     [[ "$OUTPUT" =~ "ERROR SUMMARY" ]] && printf "${CANDIDATE}/${FILE} ${OUTPUT}\n" && return
     printf "${CANDIDATE}/${FILE} gave no output.\n"
+}
+
+afl () {
+    local program=$1
+    CANDIDATE=$(echo $program | cut -d'/' -f3)
+    FILE=$(echo $program | cut -d'/' -f4)
+    [ ! -d "${OUT_DIR}/${CANDIDATE}" ] && mkdir -p "${OUT_DIR}/${CANDIDATE}"
+    [ ! -d "${OUT_DIR}/${CANDIDATE}/findings" ] && mkdir -p "${OUT_DIR}/${CANDIDATE}/findings"
+
+    echo "Running fuzzer on ${CANDIDATE}/${FILE}"
+    afl-fuzz -i afl_testcases -o "${OUT_DIR}/${CANDIDATE}/findings" > "${OUT_DIR}/${CANDIDATE}/${FILE}.out"
 }
 
 N=$BATCH_SIZE
