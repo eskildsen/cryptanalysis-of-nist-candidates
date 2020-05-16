@@ -12,7 +12,7 @@ dut/aesbitsliced/consts_aes128ctr.o \
 dut/aesbitsliced/int128_aes128ctr.o \
 dut/aesbitsliced/stream_aes128ctr.o \
 dut/aesbitsliced/xor_afternm_aes128ctr.o
-OBJS_TINYJAMBU = dut/TinyJAMBU/encrypt.o
+OBJS_COMET = dut/cometfix/encrypt.o dut/cometfix/comet_64-128_and_128-128.o dut/cometfix/CHAM_64-128_and_128-128.o
 OBJS_DRYGASCON = dut/drygascon256test/encrypt.o
 # CC=clang
 OPTIMIZATION=-O2
@@ -22,6 +22,7 @@ LIBS	= -lm
 #LDFLAGS	= -fsanitize=memory -fno-omit-frame-pointer -g 
 #LDFLAGS = -Weverything $(OPTIMIZATION) -std=c11
 LDFLAGS = $(OPTIMIZATION) -std=c11
+LDFLAGSCT = -std=c99 -Wall -Wextra -Wshadow -O2 -ggdb
 INCS	= -Iinc/
 SECONDS?=120
 REFONLY=1
@@ -47,6 +48,14 @@ dut_donnabad: $(OBJS) $(OBJS_DONNABAD) dut/donnabad/dut_donnabad.c
 
 dut_drygascon256: $(OBJS) $(OBJS_DRYGASCON) dut/drygascon256test/dut_drygascon256.c
 	$(CC) $(LDFLAGS) $(INCS) -Idut/drygascon256test/ -o dudect_test_$(OPTIMIZATION) dut/drygascon256test/$@.c $(OBJS) $(OBJS_DRYGASCON) $(LIBS)
+
+dut_cometfix: $(OBJS) $(OBJS_COMET) dut/cometfix/dut_comet.c
+	$(CC) $(LDFLAGSCT) $(INCS) -Idut/cometfix/ -o dudect_comet_test_$(OPTIMIZATION) dut/cometfix/dut_comet.c $(OBJS) $(OBJS_COMET) $(LIBS)
+	$(CC) $(LDFLAGSCT) $(INCS) -Idut/cometfix/ -o compare_comet_test_$(OPTIMIZATION) dut/cometfix/compare_comet.c src/random.o src/cpucycles.o $(OBJS_COMET) $(LIBS)
+	gcc-5 $(CFLAGS) -ggdb $(INCS) -c dut/cometfix/encrypt.c -o dut/cometfix/encrypt.o
+	gcc-5 $(CFLAGS) -ggdb $(INCS) -c dut/cometfix/comet_64-128_and_128-128.c -o dut/cometfix/comet_64-128_and_128-128.o
+	gcc-5 $(CFLAGS) -ggdb $(INCS) -c dut/cometfix/CHAM_64-128_and_128-128.c -o dut/cometfix/CHAM_64-128_and_128-128.o
+	gcc-5 $(LDFLAGSCT) $(INCS) -Idut/cometfix/ src/taint.c libctgrind.so -o ctgrind_comet_test_$(OPTIMIZATION) src/random.o $(OBJS_COMET) $(LIBS)
 
 libctgrind.so:
 	gcc -o libctgrind.so -shared src/ctgrind.c -Wall -std=c99 -fPIC -Wl,-soname,libctgrind.so.1
