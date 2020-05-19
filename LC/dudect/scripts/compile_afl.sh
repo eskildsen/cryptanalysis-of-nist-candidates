@@ -1,5 +1,5 @@
 #!/bin/bash
-LDFLAGS="-std=c99 -Wall -Wextra -Wshadow -O2 --disable-shared"
+LDFLAGS="-std=c99 -Wall -Wextra -Wshadow -O2"
 INCS="-Iinc/"
 LIBS="-lm"
 OBJS="src/random.o"

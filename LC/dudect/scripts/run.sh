@@ -56,7 +56,8 @@ afl () {
     [ ! -d "${OUT_DIR}/${CANDIDATE}/findings" ] && mkdir -p "${OUT_DIR}/${CANDIDATE}/findings"
 
     echo "Running fuzzer on ${CANDIDATE}/${FILE}"
-    afl-fuzz -i afl_testcases -o "${OUT_DIR}/${CANDIDATE}/findings" > "${OUT_DIR}/${CANDIDATE}/${FILE}.out"
+    echo -n "CMD: "
+    afl-fuzz -i afl_testcases -o "${OUT_DIR}/${CANDIDATE}/findings" $program
 }
 
 N=$BATCH_SIZE

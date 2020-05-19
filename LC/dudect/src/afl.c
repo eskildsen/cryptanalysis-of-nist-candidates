@@ -29,6 +29,7 @@ void generate_test_vectors() {
     msg = calloc(CRYPTO_MSGBYTES, sizeof(uint8_t));
     ad = calloc(CRYPTO_ADBYTES, sizeof(uint8_t));
     key = calloc(CRYPTO_KEYBYTES, sizeof(uint8_t));
+    
     cipher = calloc(clen, sizeof(uint8_t));
     cipher_size = calloc(1, sizeof(unsigned long long int));
 
@@ -43,16 +44,16 @@ void generate_test_vectors() {
     randombytes(npub, CRYPTO_NPUBBYTES * sizeof(uint8_t));
     randombytes(msg, CRYPTO_MSGBYTES * sizeof(uint8_t));
     randombytes(ad, CRYPTO_ADBYTES * sizeof(uint8_t));
-    randombytes(key, CRYPTO_KEYBYTES * sizeof(uint8_t));
+    //randombytes(key, CRYPTO_KEYBYTES * sizeof(uint8_t));
 }
 
 int main() {
     generate_test_vectors();
 
-    ssize_t numRead = read(STDIN_FILENO, key, CRYPTO_KEYBYTES);
-    if(numRead != CRYPTO_KEYBYTES)
+    ssize_t num_read = read(STDIN_FILENO, key, CRYPTO_KEYBYTES);
+    if(num_read != CRYPTO_KEYBYTES)
         return 1;
 
-    crypto_aead_encrypt(cipher, cipher_size, msg, CRYPTO_MSGBYTES, ad, CRYPTO_ADBYTES, nsec, npub, key);
-    return 0;
+    int res = crypto_aead_encrypt(cipher, cipher_size, msg, CRYPTO_MSGBYTES, ad, CRYPTO_ADBYTES, nsec, npub, key);
+    return res;
 }
