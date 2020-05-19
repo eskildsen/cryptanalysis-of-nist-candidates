@@ -23,6 +23,7 @@ typedef unsigned int u32;		//used for regular counters
 typedef unsigned long long ull;	//used for long counters
 
 #define KSZ CRYPTO_KEYBYTES
+#define HAVE_SIGN_EXTENDING_BITSHIFT 1
 
 
 void E(u8 *ct, const u8 *key, const u8 *pt){
@@ -72,16 +73,17 @@ void parse(u8 *out, const u8 *I, const ull len){
 	return;
 }
 
-/* Conditionally return a or b depending on whether bit is set */
-/* Equivalent to: return bit ? a : b */
 u8 select (u8 a, u8 b, u8 bit)
 {
-        u8 isnonzero = (bit | -bit) >> (sizeof(u8) * CHAR_BIT - 1);
-        /* -0 = 0, -1 = 0xff....ff */
-        u8 mask = -isnonzero;
-        u8 ret = mask & (b^a);
-        ret = ret ^ b;
-        return ret;
+	u8 isnonzero = (bit | -bit) >> (sizeof(u8) * CHAR_BIT - 1);
+	#if HAVE_SIGN_EXTENDING_BITSHIFT
+		u8 mask = isnonzero;
+	#else
+		u8 mask = -isnonzero;
+	#endif
+	u8 ret = mask & (b^a);
+	ret = ret ^ b;
+	return ret;
 }
 
 void permute(u8 *Z, const u8 *Z_){

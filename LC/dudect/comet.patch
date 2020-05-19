@@ -1,0 +1,50 @@
+--- comet_64-128_and_128-128.c	2019-10-07 15:58:00.000000000 +0200
++++ comet_64-128_and_128-128_ct.c	2020-05-19 15:35:40.617319800 +0200
+@@ -6,6 +6,8 @@
+ 
+ #include "options.h" //options.h to define BLOCKSIZE
+ 
++#include <limits.h>
++
+ #if BLOCKSIZE == 64
+ 
+ 	#define MSZ 8
+@@ -23,6 +25,7 @@
+ 
+ #define KSZ CRYPTO_KEYBYTES
+ 
++#define HAVE_SIGN_EXTENDING_BITSHIFT 1
+ 
+ void E(u8 *ct, const u8 *key, const u8 *pt){
+ 	
+@@ -71,6 +74,19 @@
+ 	return;
+ }
+ 
++u8 select (u8 a, u8 b, u8 bit)
++{
++	u8 isnonzero = (bit | -bit) >> (sizeof(u8) * CHAR_BIT - 1);
++	#if HAVE_SIGN_EXTENDING_BITSHIFT
++		u8 mask = isnonzero;
++	#else
++		u8 mask = -isnonzero;
++	#endif
++	u8 ret = mask & (b^a);
++	ret = ret ^ b;
++	return ret;
++}
++
+ void permute(u8 *Z, const u8 *Z_){
+ 	
+ 	//(Z'1, Z'0) <-p- Z'
+@@ -82,9 +98,7 @@
+ 		Z[j] = Z_[j]<<1 | Z_[j-1]>>7;
+ 	}
+ 	
+-	if(Z_[p-1] & 0x80){		/*10000000*/
+-		Z[0] ^= 0x1B;	/*00011011*/
+-	}
++	Z[0] = select(Z[0]^0x1B, Z[0], Z_[p-1] & 0x80);
+ 	
+ 	//Z <- (Z'1, _)
+ 	memcpy(&Z[p], &Z_[p], p);

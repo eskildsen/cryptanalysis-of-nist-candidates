@@ -52,6 +52,7 @@ dut_drygascon256: $(OBJS) $(OBJS_DRYGASCON) dut/drygascon256test/dut_drygascon25
 dut_cometfix: $(OBJS) $(OBJS_COMET) dut/cometfix/dut_comet.c
 	$(CC) $(LDFLAGSCT) $(INCS) -Idut/cometfix/ -o dudect_comet_test_$(OPTIMIZATION) dut/cometfix/dut_comet.c $(OBJS) $(OBJS_COMET) $(LIBS)
 	$(CC) $(LDFLAGSCT) $(INCS) -Idut/cometfix/ -o compare_comet_test_$(OPTIMIZATION) dut/cometfix/compare_comet.c src/random.o src/cpucycles.o $(OBJS_COMET) $(LIBS)
+	$(CC) $(LDFLAGSCT) $(INCS) -Idut/cometfix/ -o compare_comet_test2_$(OPTIMIZATION) dut/cometfix/compare_comet2.c src/random.o src/cpucycles.o $(LIBS)
 	gcc-5 $(CFLAGS) -ggdb $(INCS) -c dut/cometfix/encrypt.c -o dut/cometfix/encrypt.o
 	gcc-5 $(CFLAGS) -ggdb $(INCS) -c dut/cometfix/comet_64-128_and_128-128.c -o dut/cometfix/comet_64-128_and_128-128.o
 	gcc-5 $(CFLAGS) -ggdb $(INCS) -c dut/cometfix/CHAM_64-128_and_128-128.c -o dut/cometfix/CHAM_64-128_and_128-128.o
