@@ -76,6 +76,12 @@ compile_afl: $(OBJS)
 	./scripts/compile_base.sh afl
 	./scripts/compile_afl.sh
 
+compile_flowtracker:
+	./scripts/compile_flowtracker.sh
+
+flowtracker:
+	./scripts/run.sh $(SECONDS) $(REFONLY) $(BATCH_SIZE) flowtracker
+
 dudect:
 	./scripts/run.sh $(SECONDS) $(REFONLY) $(BATCH_SIZE) dudect
 

@@ -5,6 +5,8 @@ BATCH_SIZE=$3
 APPLICATION=$4
 [[ ${APPLICATION} = "ctgrind" ]] && BATCH_SIZE=1 
 [[ ${APPLICATION} = "afl" ]] && BATCH_SIZE=1 
+[[ ${APPLICATION} = "flowtracker" ]] && BATCH_SIZE=1 
+
 [[ $2 = 1 ]] && REF="_ref"
 PROGRAMS=$(find -path "./compiled/*/${APPLICATION}_*${REF}")
 
@@ -58,6 +60,24 @@ afl () {
     echo "Running fuzzer on ${CANDIDATE}/${FILE}"
     echo -n "CMD: "
     afl-fuzz -i afl_testcases -o "${OUT_DIR}/${CANDIDATE}/findings" $program
+}
+
+flowtracker () {
+    local program=$1
+    PATH=$PATH:/mnt/c/Users/Eske/Desktop/llvm-3.7.1.src/build/Release+Asserts/bin
+
+    CANDIDATE=$(echo $program | cut -d'/' -f3)
+    FILE=$(echo $program | cut -d'/' -f4)
+    [ ! -d "${OUT_DIR}/${CANDIDATE}" ] && mkdir -p "${OUT_DIR}/${CANDIDATE}"
+    [ ! -d "${OUT_DIR}/${CANDIDATE}/${FILE}" ] && mkdir -p "${OUT_DIR}/${CANDIDATE}/${FILE}"
+
+
+    cd "${OUT_DIR}/${CANDIDATE}/${FILE}/"
+    opt -basicaa -load AliasSets.so -load DepGraph.so -load bSSA2.so -bssa2 -xmlfile ../../../../src/encrypt.xml ../../../.$program 2> "../${FILE}.out"
+    OUTPUT=$(tail -n 1 ../${FILE}.out)
+
+    [[ "$OUTPUT" =~ "Vulnerable Subgraphs:" ]] && printf "${CANDIDATE}/${FILE} ${OUTPUT}\n" && return
+    printf "${CANDIDATE}/${FILE} gave no output.\n"
 }
 
 N=$BATCH_SIZE
