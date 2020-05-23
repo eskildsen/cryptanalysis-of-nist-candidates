@@ -2,112 +2,112 @@
 Found 109 dudect files to run
 Using 600 seconds timeout for each dudect file
 
-ascon/dudect_ascon128av12_opt64 is maybe constant time.
-ascon/dudect_ascon128av12_bi32_lowreg is maybe constant time.
 ace/dudect_aceae128v1_ref is maybe constant time.
 ascon/dudect_ascon128av12_bi32 is maybe constant time.
-ascon/dudect_ascon128v12_opt64 is maybe constant time.
+ascon/dudect_ascon128av12_bi32_lowreg is maybe constant time.
+ascon/dudect_ascon128av12_opt64 is maybe constant time.
+ascon/dudect_ascon128av12_ref is maybe constant time.
 ascon/dudect_ascon128v12_bi32 is maybe constant time.
 ascon/dudect_ascon128v12_bi32_lowreg is maybe constant time.
-ascon/dudect_ascon128av12_ref is maybe constant time.
-comet/dudect_comet128aesv1_ref is definitely not constant time.
-ascon/dudect_ascon80pqv12_ref is maybe constant time.
+ascon/dudect_ascon128v12_opt64 is maybe constant time.
 ascon/dudect_ascon128v12_ref is maybe constant time.
 ascon/dudect_ascon80pqv12_opt64 is maybe constant time.
+ascon/dudect_ascon80pqv12_ref is maybe constant time.
+comet/dudect_comet128aesv1_ref is definitely not constant time.
+comet/dudect_comet128chamv1_ref is definitely not constant time.
 comet/dudect_comet64chamv1_ref is definitely not constant time.
 comet/dudect_comet64speckv1_ref is definitely not constant time.
-comet/dudect_comet128chamv1_ref is definitely not constant time.
 drygascon/dudect_drygascon128_le32 is maybe constant time.
+drygascon/dudect_drygascon128_ref is maybe constant time.
 drygascon/dudect_drygascon256_le32 is definitely not constant time.
 drygascon/dudect_drygascon256_ref is definitely not constant time.
 elephant/dudect_elephant160v1_ref is maybe constant time.
-drygascon/dudect_drygascon128_ref is maybe constant time.
-elephant/dudect_elephant200v1_ref is maybe constant time.
 elephant/dudect_elephant176v1_ref is probably not constant time.
-estate/dudect_estatetwegift128v1_ref is maybe constant time.
+elephant/dudect_elephant200v1_ref is maybe constant time.
 estate/dudect_estatetweaes128v1_ref is maybe constant time.
-forkae/dudect_paefforkskinnyb128t256n112v1_ref is maybe constant time.
+estate/dudect_estatetwegift128v1_ref is maybe constant time.
 estate/dudect_sestatetweaes128v1_ref is probably not constant time.
-forkae/dudect_paefforkskinnyb128t288n104v1_ref is maybe constant time.
 forkae/dudect_paefforkskinnyb128t192n48v1_ref is maybe constant time.
-forkae/dudect_saefforkskinnyb128t256n120v1_ref is probably not constant time.
+forkae/dudect_paefforkskinnyb128t256n112v1_ref is maybe constant time.
+forkae/dudect_paefforkskinnyb128t288n104v1_ref is maybe constant time.
 forkae/dudect_paefforkskinnyb64t192n48v1_ref is maybe constant time.
 forkae/dudect_saefforkskinnyb128t192n56v1_ref is maybe constant time.
+forkae/dudect_saefforkskinnyb128t256n120v1_ref is probably not constant time.
 gift-cofb/dudect_giftcofb128v1_ref is maybe constant time.
-isap/dudect_isapk128av20_ref is maybe constant time.
-isap/dudect_isapa128av20_ref is maybe constant time.
 hyena/dudect_hyenav1_ref is maybe constant time.
+isap/dudect_isapa128av20_ref is maybe constant time.
 isap/dudect_isapa128v20_ref is maybe constant time.
+isap/dudect_isapk128av20_ref is maybe constant time.
 isap/dudect_isapk128v20_ref gave no output.
-knot/dudect_knot128v2_opt is maybe constant time.
-knot/dudect_knot128v1_ref is maybe constant time.
 knot/dudect_knot128v1_opt is maybe constant time.
-knot/dudect_knot192_opt is maybe constant time.
+knot/dudect_knot128v1_ref is maybe constant time.
+knot/dudect_knot128v2_opt is maybe constant time.
 knot/dudect_knot128v2_ref is maybe constant time.
+knot/dudect_knot192_opt is maybe constant time.
 knot/dudect_knot192_ref is maybe constant time.
 knot/dudect_knot256_opt is maybe constant time.
 knot/dudect_knot256_ref is maybe constant time.
-lotus-locus/dudect_twegift64lotusaeadv1_ref is maybe constant time.
 lotus-locus/dudect_twegift64locusaeadv1_ref is maybe constant time.
+lotus-locus/dudect_twegift64lotusaeadv1_ref is maybe constant time.
 mixfeed/dudect_mixfeed_ref is probably not constant time.
 orange/dudect_orangezestv1_ref is probably not constant time.
-oribatida/dudect_oribatida256v12_ref is maybe constant time.
 oribatida/dudect_oribatida192v12_ref is maybe constant time.
+oribatida/dudect_oribatida256v12_ref is maybe constant time.
 photon-beetle/dudect_photonbeetleaead128rate128v1_ref is maybe constant time.
 photon-beetle/dudect_photonbeetleaead128rate32v1_ref is maybe constant time.
 pyjamask/dudect_pyjamask128aeadv1_ref is maybe constant time.
-romulus/dudect_romulusm1v12_ref is maybe constant time.
 pyjamask/dudect_pyjamask96aeadv1_ref is maybe constant time.
-romulus/dudect_romulusn2v12_ref is maybe constant time.
+romulus/dudect_romulusm1v12_ref is maybe constant time.
 romulus/dudect_romulusm2v12_ref is maybe constant time.
-romulus/dudect_romulusn1v12_ref is maybe constant time.
 romulus/dudect_romulusm3v12_ref is maybe constant time.
-saeaes/dudect_saeaes128a120t128v1_ref is definitely not constant time.
-saeaes/dudect_saeaes128a64t128v1_ref is definitely not constant time.
-saeaes/dudect_saeaes128a120t64v1_ref is definitely not constant time.
+romulus/dudect_romulusn1v12_ref is maybe constant time.
+romulus/dudect_romulusn2v12_ref is maybe constant time.
 romulus/dudect_romulusn3v12_ref is maybe constant time.
-saeaes/dudect_saeaes192a120t128v1_ref is definitely not constant time.
+saeaes/dudect_saeaes128a120t128v1_ref is definitely not constant time.
+saeaes/dudect_saeaes128a120t64v1_ref is definitely not constant time.
+saeaes/dudect_saeaes128a64t128v1_ref is definitely not constant time.
 saeaes/dudect_saeaes128a64t64v1_ref is definitely not constant time.
-saeaes/dudect_saeaes192a64t64v1_ref is definitely not constant time.
+saeaes/dudect_saeaes192a120t128v1_ref is definitely not constant time.
 saeaes/dudect_saeaes192a64t128v1_ref is probably not constant time.
+saeaes/dudect_saeaes192a64t64v1_ref is definitely not constant time.
+saeaes/dudect_saeaes256a120t128v1_ref is probably not constant time.
 saeaes/dudect_saeaes256a64t128v1_ref is definitely not constant time.
 saeaes/dudect_saeaes256a64t64v1_ref is definitely not constant time.
-saeaes/dudect_saeaes256a120t128v1_ref is probably not constant time.
 saturnin/dudect_saturninctrcascadev2_bs32 is maybe constant time.
+saturnin/dudect_saturninctrcascadev2_bs32x is maybe constant time.
 saturnin/dudect_saturninctrcascadev2_bs64 is maybe constant time.
 saturnin/dudect_saturninctrcascadev2_ref is maybe constant time.  
-saturnin/dudect_saturninctrcascadev2_bs32x is maybe constant time.
 saturnin/dudect_saturninshortv2_ref is maybe constant time.       
-skinny/dudect_skinnyaeadtk312864v1_ref is maybe constant time.
-skinny/dudect_skinnyaeadtk3128128v1_ref is maybe constant time.
-skinny/dudect_skinnyaeadtk29664v1_ref is maybe constant time.  
 skinny/dudect_skinnyaeadtk296128v1_ref is maybe constant time. 
-skinny/dudect_skinnyaeadtk39664v1_ref is maybe constant time.
+skinny/dudect_skinnyaeadtk29664v1_ref is maybe constant time.  
+skinny/dudect_skinnyaeadtk3128128v1_ref is maybe constant time.
+skinny/dudect_skinnyaeadtk312864v1_ref is maybe constant time.
 skinny/dudect_skinnyaeadtk396128v1_ref is maybe constant time.
-sparkle/dudect_schwaemm128128v1_ref is maybe constant time.   
+skinny/dudect_skinnyaeadtk39664v1_ref is maybe constant time.
 sparkle/dudect_schwaemm128128v1_opt is maybe constant time.   
-sparkle/dudect_schwaemm256128v1_ref is maybe constant time.
-sparkle/dudect_schwaemm256128v1_opt is maybe constant time.
-sparkle/dudect_schwaemm192192v1_ref is maybe constant time.
+sparkle/dudect_schwaemm128128v1_ref is maybe constant time.   
 sparkle/dudect_schwaemm192192v1_opt is maybe constant time.
-sparkle/dudect_schwaemm256256v1_ref is maybe constant time.
+sparkle/dudect_schwaemm192192v1_ref is maybe constant time.
+sparkle/dudect_schwaemm256128v1_opt is maybe constant time.
+sparkle/dudect_schwaemm256128v1_ref is maybe constant time.
 sparkle/dudect_schwaemm256256v1_opt is maybe constant time.    
-spoc/dudect_spoc128sliscplight256v1_ref is maybe constant time.
+sparkle/dudect_schwaemm256256v1_ref is maybe constant time.
 spix/dudect_spix128v1_ref is maybe constant time.
+spoc/dudect_spoc128sliscplight256v1_ref is maybe constant time.
 spoc/dudect_spoc64sliscplight192v1_ref is maybe constant time.
 spook/dudect_spook128mu384v1_ref is maybe constant time.
 spook/dudect_spook128mu512v1_ref is maybe constant time.
 spook/dudect_spook128su384v1_ref is maybe constant time.
+spook/dudect_spook128su512v1_ref is maybe constant time.     
 sundae-gift/dudect_sundaegift0v1_ref is maybe constant time.  
 sundae-gift/dudect_sundaegift128v1_ref is maybe constant time.
 sundae-gift/dudect_sundaegift64v1_ref is maybe constant time.
-spook/dudect_spook128su512v1_ref is maybe constant time.     
+sundae-gift/dudect_sundaegift96v1_ref is maybe constant time.
 tinyjambu/dudect_tinyjambu128_opt is maybe constant time.    
 tinyjambu/dudect_tinyjambu128_ref is maybe constant time.    
-sundae-gift/dudect_sundaegift96v1_ref is maybe constant time.
 tinyjambu/dudect_tinyjambu192_opt is maybe constant time.
-tinyjambu/dudect_tinyjambu256_ref is maybe constant time.
-wage/dudect_wageae128v1_ref is maybe constant time.
 tinyjambu/dudect_tinyjambu192_ref is maybe constant time.
 tinyjambu/dudect_tinyjambu256_opt is maybe constant time.
+tinyjambu/dudect_tinyjambu256_ref is maybe constant time.
+wage/dudect_wageae128v1_ref is maybe constant time.
 xoodyak/dudect_xoodyakv1_ref is maybe constant time.
