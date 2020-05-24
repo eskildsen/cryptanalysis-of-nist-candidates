@@ -1,5 +1,5 @@
-./scripts/run.sh 120 1 4 flowtracker
-Found 86 flowtracker files to run
+./scripts/run.sh 120 0 4 flowtracker
+Found 110 flowtracker files to run
 
 
 ace/flowtracker_aceae128v1_ref Vulnerable Subgraphs: 4 
@@ -10,7 +10,9 @@ comet/flowtracker_comet128aesv1_ref Vulnerable Subgraphs: 0
 comet/flowtracker_comet128chamv1_ref Vulnerable Subgraphs: 0 
 comet/flowtracker_comet64chamv1_ref Vulnerable Subgraphs: 0 
 comet/flowtracker_comet64speckv1_ref Vulnerable Subgraphs: 0 
+drygascon/flowtracker_drygascon128_le32 Vulnerable Subgraphs: 0 
 drygascon/flowtracker_drygascon128_ref Vulnerable Subgraphs: 10 
+drygascon/flowtracker_drygascon256_le32 Vulnerable Subgraphs: 0 
 drygascon/flowtracker_drygascon256_ref Vulnerable Subgraphs: 10 
 elephant/flowtracker_elephant160v1_ref Vulnerable Subgraphs: 0 
 elephant/flowtracker_elephant176v1_ref Vulnerable Subgraphs: 0 
@@ -25,14 +27,22 @@ forkae/flowtracker_paefforkskinnyb64t192n48v1_ref Vulnerable Subgraphs: 1
 forkae/flowtracker_saefforkskinnyb128t192n56v1_ref Vulnerable Subgraphs: 1 
 forkae/flowtracker_saefforkskinnyb128t256n120v1_ref Vulnerable Subgraphs: 1 
 gift-cofb/flowtracker_giftcofb128v1_ref Vulnerable Subgraphs: 0 
+gimli/flowtracker_gimli24v1_littleendian Vulnerable Subgraphs: 3 
+gimli/flowtracker_gimli24v1_ref Vulnerable Subgraphs: 3 
+grain-128aead/flowtracker_grain128aead_opt32 Vulnerable Subgraphs: 0 
+grain-128aead/flowtracker_grain128aead_ref Vulnerable Subgraphs: 0 
 hyena/flowtracker_hyenav1_ref Vulnerable Subgraphs: 0 
 isap/flowtracker_isapa128av20_ref Vulnerable Subgraphs: 0 
 isap/flowtracker_isapa128v20_ref Vulnerable Subgraphs: 0 
 isap/flowtracker_isapk128av20_ref Vulnerable Subgraphs: 0 
 isap/flowtracker_isapk128v20_ref Vulnerable Subgraphs: 0 
+knot/flowtracker_knot128v1_opt Vulnerable Subgraphs: 2 
 knot/flowtracker_knot128v1_ref Vulnerable Subgraphs: 7 
+knot/flowtracker_knot128v2_opt Vulnerable Subgraphs: 3 
 knot/flowtracker_knot128v2_ref Vulnerable Subgraphs: 7 
+knot/flowtracker_knot192_opt Vulnerable Subgraphs: 4 
 knot/flowtracker_knot192_ref Vulnerable Subgraphs: 7 
+knot/flowtracker_knot256_opt Vulnerable Subgraphs: 4 
 knot/flowtracker_knot256_ref Vulnerable Subgraphs: 7 
 lotus-locus/flowtracker_twegift64locusaeadv1_ref Vulnerable Subgraphs: 2 
 lotus-locus/flowtracker_twegift64lotusaeadv1_ref Vulnerable Subgraphs: 2 
@@ -60,6 +70,9 @@ saeaes/flowtracker_saeaes192a64t64v1_ref Vulnerable Subgraphs: 0
 saeaes/flowtracker_saeaes256a120t128v1_ref Vulnerable Subgraphs: 0 
 saeaes/flowtracker_saeaes256a64t128v1_ref Vulnerable Subgraphs: 0 
 saeaes/flowtracker_saeaes256a64t64v1_ref Vulnerable Subgraphs: 0 
+saturnin/flowtracker_saturninctrcascadev2_bs32 Vulnerable Subgraphs: 1 
+saturnin/flowtracker_saturninctrcascadev2_bs32x Vulnerable Subgraphs: 0 
+saturnin/flowtracker_saturninctrcascadev2_bs64 Vulnerable Subgraphs: 0 
 saturnin/flowtracker_saturninctrcascadev2_ref Vulnerable Subgraphs: 0 
 saturnin/flowtracker_saturninshortv2_ref Vulnerable Subgraphs: 0 
 skinny/flowtracker_skinnyaeadtk296128v1_ref Vulnerable Subgraphs: 0 
@@ -68,9 +81,13 @@ skinny/flowtracker_skinnyaeadtk3128128v1_ref Vulnerable Subgraphs: 0
 skinny/flowtracker_skinnyaeadtk312864v1_ref Vulnerable Subgraphs: 0 
 skinny/flowtracker_skinnyaeadtk396128v1_ref Vulnerable Subgraphs: 0 
 skinny/flowtracker_skinnyaeadtk39664v1_ref Vulnerable Subgraphs: 0 
+sparkle/flowtracker_schwaemm128128v1_opt Vulnerable Subgraphs: 0 
 sparkle/flowtracker_schwaemm128128v1_ref Vulnerable Subgraphs: 0 
+sparkle/flowtracker_schwaemm192192v1_opt Vulnerable Subgraphs: 0 
 sparkle/flowtracker_schwaemm192192v1_ref Vulnerable Subgraphs: 0 
+sparkle/flowtracker_schwaemm256128v1_opt Vulnerable Subgraphs: 0 
 sparkle/flowtracker_schwaemm256128v1_ref Vulnerable Subgraphs: 0 
+sparkle/flowtracker_schwaemm256256v1_opt Vulnerable Subgraphs: 0 
 sparkle/flowtracker_schwaemm256256v1_ref Vulnerable Subgraphs: 0 
 spix/flowtracker_spix128v1_ref Vulnerable Subgraphs: 4 
 spoc/flowtracker_spoc128sliscplight256v1_ref Vulnerable Subgraphs: 2 
@@ -79,12 +96,17 @@ spook/flowtracker_spook128mu384v1_ref Vulnerable Subgraphs: 0
 spook/flowtracker_spook128mu512v1_ref Vulnerable Subgraphs: 0 
 spook/flowtracker_spook128su384v1_ref Vulnerable Subgraphs: 0 
 spook/flowtracker_spook128su512v1_ref Vulnerable Subgraphs: 0 
+subterranean/flowtracker_subterraneanv1_add_mem_compact Vulnerable Subgraphs: 0 
+subterranean/flowtracker_subterraneanv1_ref Vulnerable Subgraphs: 0 
 sundae-gift/flowtracker_sundaegift0v1_ref Vulnerable Subgraphs: 0 
 sundae-gift/flowtracker_sundaegift128v1_ref Vulnerable Subgraphs: 0 
 sundae-gift/flowtracker_sundaegift64v1_ref Vulnerable Subgraphs: 0 
 sundae-gift/flowtracker_sundaegift96v1_ref Vulnerable Subgraphs: 0 
+tinyjambu/flowtracker_tinyjambu128_opt Vulnerable Subgraphs: 0 
 tinyjambu/flowtracker_tinyjambu128_ref Vulnerable Subgraphs: 0 
+tinyjambu/flowtracker_tinyjambu192_opt Vulnerable Subgraphs: 0 
 tinyjambu/flowtracker_tinyjambu192_ref Vulnerable Subgraphs: 0 
+tinyjambu/flowtracker_tinyjambu256_opt Vulnerable Subgraphs: 0 
 tinyjambu/flowtracker_tinyjambu256_ref Vulnerable Subgraphs: 0 
 wage/flowtracker_wageae128v1_ref Vulnerable Subgraphs: 0 
-xoodyak/flowtracker_xoodyakv1_ref Vulnerable Subgraphs: 0
+xoodyak/flowtracker_xoodyakv1_ref Vulnerable Subgraphs: 0 

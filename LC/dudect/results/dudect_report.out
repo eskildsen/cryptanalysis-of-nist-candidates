@@ -34,6 +34,10 @@ forkae/dudect_paefforkskinnyb64t192n48v1_ref is maybe constant time.
 forkae/dudect_saefforkskinnyb128t192n56v1_ref is maybe constant time.
 forkae/dudect_saefforkskinnyb128t256n120v1_ref is probably not constant time.
 gift-cofb/dudect_giftcofb128v1_ref is maybe constant time.
+gimli/dudect_gimli24v1_ref is maybe constant time.
+gimli/dudect_gimli24v1_littleendian is maybe constant time.
+grain-128aead/dudect_grain128aead_ref is maybe constant time.
+grain-128aead/dudect_grain128aead_opt32 is maybe constant time.
 hyena/dudect_hyenav1_ref is maybe constant time.
 isap/dudect_isapa128av20_ref is maybe constant time.
 isap/dudect_isapa128v20_ref is maybe constant time.
@@ -98,7 +102,9 @@ spoc/dudect_spoc64sliscplight192v1_ref is maybe constant time.
 spook/dudect_spook128mu384v1_ref is maybe constant time.
 spook/dudect_spook128mu512v1_ref is maybe constant time.
 spook/dudect_spook128su384v1_ref is maybe constant time.
-spook/dudect_spook128su512v1_ref is maybe constant time.     
+spook/dudect_spook128su512v1_ref is maybe constant time.
+subterranean/dudect_subterraneanv1_ref is maybe constant time.
+subterranean/dudect_subterraneanv1_add_mem_compact is maybe constant time.
 sundae-gift/dudect_sundaegift0v1_ref is maybe constant time.  
 sundae-gift/dudect_sundaegift128v1_ref is maybe constant time.
 sundae-gift/dudect_sundaegift64v1_ref is maybe constant time.
