@@ -11,8 +11,8 @@ C_FILES=$(find -path './candidates/*/Implementations/crypto_aead/*/*/*.c')
 [[ ! $(which "$COMPILER") ]] && echo "Compiler '$COMPILER' not found. You need to install it first and ensure it is included in your \$PATH" && exit
 
 for file in $C_FILES; do
-    CANDIDATE=$(echo $dfile | cut -d'/' -f3)
-    NAME=$(echo $file | cut -d'/' -f8)
+    CANDIDATE=$(echo $file | cut -d'/' -f3)
+    name=$(basename $file)
     [[ "$name" = "genkat_aead.c" ]] && continue
     [ ! -d "compiled/$CANDIDATE" ] && mkdir -p "compiled/$CANDIDATE"
 

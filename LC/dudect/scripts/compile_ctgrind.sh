@@ -18,7 +18,7 @@ for d in $SUBMISSIONS; do
 
     O_FILES=$(find -path "./candidates/${CANDIDATE}/Implementations/crypto_aead/${SUBMISSION}/${IMPLEMENTATION}/*.o")
     for file in $O_FILES; do
-        name=$(echo $file | cut -d'/' -f8)
+        name=$(basename $file)
         [[ "$name" = "genkat_aead.o" ]] && continue
         COMPILED="$COMPILED $file"
     done
